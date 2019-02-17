@@ -33,7 +33,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 			System.out.println("1 aquiiii");
 			try {
 				listaViolaciones= new LinkedList<>();
-				CSVReader reader = new CSVReader (new FileReader ("path enero"));
+				CSVReader reader = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_January_2018.csv"));
 				String [] nextLine;
 				try {
 					reader.readNext();
@@ -46,7 +46,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 						listaViolaciones.add(mV);
 						System.out.println("mapeando");
 					}
-					CSVReader reader2 = new CSVReader (new FileReader ("path feb"));
+					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_February_2018.csv"));
 					String [] nextLine2;
 
 					reader2.readNext();
@@ -60,7 +60,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 						System.out.println("mapeando");
 					}
 					
-					CSVReader reader3 = new CSVReader (new FileReader ("path marzo"));
+					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_March_2018.csv"));
 					String [] nextLine3;
 
 					reader3.readNext();
@@ -74,7 +74,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 						System.out.println("mapeando");
 					}
 					
-					CSVReader reader4 = new CSVReader (new FileReader ("path abril"));
+					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_April_2018.csv"));
 					String [] nextLine4;
 
 					reader4.readNext();
@@ -107,7 +107,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 			System.out.println("2 aquiiii");
 			try {
 				listaViolaciones= new LinkedList<>();
-				CSVReader reader = new CSVReader (new FileReader ("path enero"));
+				CSVReader reader = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_May_2018.csv"));
 				String [] nextLine;
 				try {
 					reader.readNext();
@@ -120,7 +120,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 						listaViolaciones.add(mV);
 						System.out.println("mapeando");
 					}
-					CSVReader reader2 = new CSVReader (new FileReader ("path feb"));
+					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_June_2018.csv"));
 					String [] nextLine2;
 
 					reader2.readNext();
@@ -134,7 +134,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 						System.out.println("mapeando");
 					}
 					
-					CSVReader reader3 = new CSVReader (new FileReader ("path marzo"));
+					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_July_2018.csv"));
 					String [] nextLine3;
 
 					reader3.readNext();
@@ -148,7 +148,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 						System.out.println("mapeando");
 					}
 					
-					CSVReader reader4 = new CSVReader (new FileReader ("path abril"));
+					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_August_2018.csv"));
 					String [] nextLine4;
 
 					reader4.readNext();
@@ -182,7 +182,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 			System.out.println("3 aquiiii");
 			try {
 				listaViolaciones= new LinkedList<>();
-				CSVReader reader = new CSVReader (new FileReader ("path enero"));
+				CSVReader reader = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_September_2018.csv"));
 				String [] nextLine;
 				try {
 					reader.readNext();
@@ -195,7 +195,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 						listaViolaciones.add(mV);
 						System.out.println("mapeando");
 					}
-					CSVReader reader2 = new CSVReader (new FileReader ("path feb"));
+					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_October_2018.csv"));
 					String [] nextLine2;
 
 					reader2.readNext();
@@ -209,7 +209,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 						System.out.println("mapeando");
 					}
 					
-					CSVReader reader3 = new CSVReader (new FileReader ("path marzo"));
+					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_November_2018.csv"));
 					String [] nextLine3;
 
 					reader3.readNext();
@@ -223,8 +223,9 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 						System.out.println("mapeando");
 					}
 					
-					CSVReader reader4 = new CSVReader (new FileReader ("path abril"));
+					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_December_2018.csv"));
 					String [] nextLine4;
+					
 
 					reader4.readNext();
 					while ((nextLine4 = reader4.readNext()) != null) {
