@@ -17,6 +17,7 @@ public class QueueTest extends TestCase{
 	public void testSize() {
 		IQueue<Integer> cola = new Queue<>();	
 		cola.enqueue(1);
+		
 		cola.enqueue(2);
 		cola.enqueue(3);
 		cola.enqueue(4);
