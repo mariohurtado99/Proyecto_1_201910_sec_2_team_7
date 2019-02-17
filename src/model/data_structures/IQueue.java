@@ -10,7 +10,7 @@ public interface IQueue<Item> extends Iterable<Item>{
 	
 	/**
 	 * Retorna el numero de elementos contenidos
-	 * @return el numero de elemntos contenidos
+	 * @return el numero de elementos contenidos
 	 */
 	public int size();
 	
