@@ -8,12 +8,16 @@ import model.data_structures.LinkedList;
 import model.vo.VOMovingViolations;
 
 /**
- * 
+ * Clase que maneja lo que se va a mostrar en consola al correr la aplicación.
  * @author Mario Hurtado
  *
  */
 public class MovingViolationsManagerView 
 {
+	/**
+	 * Método main para que la aplicación corra.
+	 * @param args Arreglo de Strings.
+	 */
 	public static void main(String[] args) 
 	{
 		Scanner sc = new Scanner(System.in);
@@ -24,6 +28,9 @@ public class MovingViolationsManagerView
 			
 			int option = sc.nextInt();
 			
+			/**
+			 * Switch para que se ejecute la instrucción que haya escogido el usuario.
+			 */
 			switch(option)
 			{
 				case 1:
@@ -62,6 +69,9 @@ public class MovingViolationsManagerView
 		}
 	}
 
+	/**
+	 * Método que imprime en la consola el menú para que el usuario elija la opción que desee.
+	 */
 	private static void printMenu() {
 		System.out.println("---------ISIS 1206 - Estructuras de datos----------");
 		System.out.println("---------------------Taller 2----------------------");

@@ -4,8 +4,16 @@ import junit.framework.TestCase;
 import model.data_structures.IStack;
 import model.data_structures.Stack;
 
+/**
+ * Clase para realizar pruebas unitarias de los métodos de la clase Stack.
+ * @author Mario Hurtado.
+ *
+ */
 public class StackTest extends TestCase {
 	
+	/**
+	 * Test del método isEmpty() de la clase IStack.
+	 */
 	public void testIsEmpty() {
 		IStack<Integer> pila = new Stack<>();
 		pila.push(34);
@@ -18,6 +26,9 @@ public class StackTest extends TestCase {
 		assertEquals(true, pila.isEmpty());
 	}
 	
+	/**
+	 * Test del método size() de la clase IStack.
+	 */
 	public void testSize() {
 		IStack<Integer> pila = new Stack<>();
 		pila.push(1);
@@ -30,6 +41,9 @@ public class StackTest extends TestCase {
 		assertEquals(0, pila.size());
 	}
 	
+	/**
+	 * Test del método push() de la clase IStack.
+	 */
 	public void testPush() {
 		IStack<Integer> pila = new Stack<>();
 		pila.push(1);
@@ -48,6 +62,9 @@ public class StackTest extends TestCase {
 		assertEquals(9, pila.size());
 	}
 	
+	/**
+	 * Test del método pop() de la clase IStack.
+	 */
 	public void testPop() {
 		IStack<Integer> pila = new Stack<>();
 		pila.push(1);

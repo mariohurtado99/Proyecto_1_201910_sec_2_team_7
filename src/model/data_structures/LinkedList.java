@@ -82,7 +82,10 @@ public class LinkedList<T> implements ILinkedList<T> {
 		crunchifyCurrent.setSiguiente(crunchifyTemp);
 		incrementCounter();
 	}
- 
+	
+	/**
+	 * @see ILinkedList#get(int).
+	 */
 	public T get(int index)
 	{
 		if (index < 0)
@@ -101,6 +104,12 @@ public class LinkedList<T> implements ILinkedList<T> {
 		return (T) crunchifyCurrent;
  
 	}
+	
+	/**
+	 * Quita el elemento con el índice dado por parámetro.
+	 * @param index Índice de donde se va a quitar el elemento.
+	 * @return True si se pudo eliminar el elemento, false de lo contrario.
+	 */
 	public boolean remove(int index) {
 		if (index < 1 || index > size())
 			return false;
@@ -121,13 +130,16 @@ public class LinkedList<T> implements ILinkedList<T> {
 	}
  
 	/**
-	 * 
+	 * @see ILinkedList#getCounter().
 	 * @return
 	 */
 	public int size() {
 		return getCounter();
 	}
- 
+	
+	/**
+	 * Muestra la representación de la clase en Strings.
+	 */
 	public String toString() {
 		String output = "";
  

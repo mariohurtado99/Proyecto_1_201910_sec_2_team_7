@@ -6,9 +6,16 @@ import junit.framework.TestCase;
 import model.data_structures.ILinkedList;
 import model.data_structures.LinkedList;
 
+/**
+ * Clase test para la lista encadenada.
+ * @author Mario Hurtado.
+ *
+ */
 public class LinkedListTest extends TestCase{
 
-	
+	/**
+	 * Test del método getCounter() de la clase ILinkedList.
+	 */
 	public void testGetCounter() {
 		ILinkedList<Integer> arreglo = new LinkedList<>();
 		arreglo.add(1);
@@ -19,7 +26,9 @@ public class LinkedListTest extends TestCase{
 		assertEquals(5, arreglo.getCounter());
 	}
 	
-	
+	/**
+	 * Test del método add() de la clase ILinkedList.
+	 */
 	public void testAdd() {
 		LinkedList<Integer> arreglo2 = new LinkedList<>();
 		arreglo2.add(1);
@@ -28,6 +37,9 @@ public class LinkedListTest extends TestCase{
 		assertEquals(3, arreglo2.getCounter());
 	}
 	
+	/**
+	 * Test del método get() de la clase ILinkedList.
+	 */
 	public void testGet() {
 		LinkedList<String> arreglo2 = new LinkedList<>();
 		arreglo2.add("Hola, ");

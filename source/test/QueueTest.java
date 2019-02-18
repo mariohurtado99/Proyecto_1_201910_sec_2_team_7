@@ -4,8 +4,16 @@ import junit.framework.TestCase;
 import model.data_structures.IQueue;
 import model.data_structures.Queue;
 
+/**
+ * Clase test para realizar pruebas automáticas a los métodos de la clase Queue.
+ * @author Mario Hurtado.
+ *
+ */
 public class QueueTest extends TestCase{
-	
+
+	/**
+	 * Test del método isEmpty() de la clase IQueue.
+	 */
 	public void testIsEmpty() {
 		IQueue<Integer> cola = new Queue<>();	
 		cola.enqueue(256);
@@ -14,6 +22,9 @@ public class QueueTest extends TestCase{
 		assertEquals(true, cola.isEmpty());
 	}
 	
+	/**
+	 * Test del método size() de la clase IQueue.
+	 */
 	public void testSize() {
 		IQueue<Integer> cola = new Queue<>();	
 		cola.enqueue(1);
@@ -25,6 +36,9 @@ public class QueueTest extends TestCase{
 		assertEquals(5, cola.size());
 	}
 	
+	/**
+	 * Test del método enqueue() de la clase IQueue.
+	 */
 	public void testEnqueue() {
 		IQueue<Integer> cola = new Queue<>();	
 		cola.enqueue(1);
@@ -37,6 +51,9 @@ public class QueueTest extends TestCase{
 	}
 	
 	
+	/**
+	 * Test del método dequeue() de la clase IQueue.
+	 */
 	public void testDequeue() {
 		IQueue<Integer> cola = new Queue<>();	
 		cola.enqueue(1);

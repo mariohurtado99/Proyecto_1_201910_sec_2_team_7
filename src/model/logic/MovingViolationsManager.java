@@ -15,16 +15,21 @@ import java.time.Clock;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 /**
- * 
+ * Clase que maneja la carga de los archivos de tipo CSV.
  * @author Mario Hurtado
  *
  */
 public class MovingViolationsManager implements IMovingViolationsManager {
 
-	
+	/**
+	 * Lista en la que se va a cargar la información.
+	 */
 	ILinkedList<VOMovingViolations> listaViolaciones;
 	
-	
+	/**
+	 * Método que carga la información del archivo CSV a la lista.
+	 * Dependiendo del cuatrimestre elegido por el usuario carga la información de los meses que correspondan.
+	 */
 	public void loadMovingViolations(String movingViolationsFile){
 //		listaViolaciones= new CsvToBeanBuilder(new FileReader(movingViolationsFile)).withType(VOMovingViolations.class).build().parse();
 		System.out.println("ejecuto");

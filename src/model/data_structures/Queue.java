@@ -10,18 +10,39 @@ import java.util.NoSuchElementException;
  * @param <Item>
  */
 public class Queue<Item> implements Iterable<Item>, IQueue<Item> {
-    private int n;         // number of elements on queue
-    private Node first;    // beginning of queue
-    private Node last;     // end of queue
+	/**
+	 * Número de elementos en la cola.
+	 */
+    private int n;         
+    
+    /**
+     * Inicio de la cola.
+     */
+    private Node first;    
+    
+    /**
+     * Fin de la cola.
+     */
+    private Node last;     
 
-    // helper linked list class
+    /**
+     * Clase LinkedList de Soporte.
+     */
     private class Node {
-        private Item item;   // the item in the node
-        private Node next;   // reference to next item
+    	
+    	/**
+    	 * Item en el nodo.
+    	 */
+        private Item item;   
+        
+        /**
+         * Referencia al siguiente Item.
+         */
+        private Node next;   
     }
 
     /**
-     * Initializes an empty queue.
+     * Inicializa una cola vacía.
      */
     public Queue() {
         first = null;
@@ -30,37 +51,37 @@ public class Queue<Item> implements Iterable<Item>, IQueue<Item> {
     }
 
     /**
-     * Returns true if this queue is empty.
+     * Returns verdadero si la cola está vacía.
      *
-     * @return {@code true} if this queue is empty; {@code false} otherwise
+     * @return True si está vacía, false de lo contrario.
      */
     public boolean isEmpty() {
         return first == null;
     }
 
     /**
-     * Returns the number of items in this queue.
+     * Retorna el número de items en la cola..
      *
-     * @return the number of items in this queue
+     * @return Cantidad de items en la cola.
      */
     public int size() {
         return n;
     }
 
     /**
-     * Returns the number of items in this queue.
+     * Retorna el número de items en la cola..
      *
-     * @return the number of items in this queue
+     * @return Cantidad de items en la cola.
      */
     public int length() {
         return n;
     }
 
     /**
-     * Returns the item least recently added to this queue.
+     * Retorna el item agregado menos recientemente.
      *
-     * @return the item least recently added to this queue
-     * @throws NoSuchElementException if this queue is empty
+     * @return Item menos recientemente agregado.
+     * @throws NoSuchElementException Si la cola está vacía.
      */
     public Item peek() {
         if (isEmpty()) throw new NoSuchElementException("Queue underflow");
@@ -68,7 +89,7 @@ public class Queue<Item> implements Iterable<Item>, IQueue<Item> {
     }
 
     /**
-     * Add the item to the queue.
+     * Añade un item a la cola.
      */
     public void enqueue(Item item) {
         Node oldlast = last;
@@ -81,24 +102,24 @@ public class Queue<Item> implements Iterable<Item>, IQueue<Item> {
     }
 
     /**
-     * Removes and returns the item on this queue that was least recently added.
+     * Elimina y retorna el item menos recientemente agregado a la cola.
      *
-     * @return the item on this queue that was least recently added
-     * @throws NoSuchElementException if this queue is empty
+     * @return Item menos recientemente agregado.
+     * @throws NoSuchElementException Si la cola es vacía.
      */
     public Item dequeue() {
         if (isEmpty()) throw new NoSuchElementException("Queue underflow");
         Item item = first.item;
         first = first.next;
         n--;
-        if (isEmpty()) last = null;   // to avoid loitering
+        if (isEmpty()) last = null;   
         return item;
     }
 
     /**
-     * Returns a string representation of this queue.
+     * Retorna una representación en String de la cola.
      *
-     * @return the sequence of items in FIFO order, separated by spaces
+     * @return Secuencia de items en orden FIFO, separados por espacios.
      */
     public String toString() {
         StringBuilder s = new StringBuilder();
@@ -109,9 +130,9 @@ public class Queue<Item> implements Iterable<Item>, IQueue<Item> {
 
 
     /**
-     * Returns an iterator that iterates over the items in this queue in FIFO order.
+     * Retorna un iterador que itera sobre los items de la cola en orden FIFO.
      *
-     * @return an iterator that iterates over the items in this queue in FIFO order
+     * @return Iterador que itera en orden FIFO.
      */
     public Iterator<Item> iterator() {
         return new ListIterator();

@@ -10,17 +10,32 @@ import java.util.NoSuchElementException;
  * @param <Item>
  */
 public class Stack<Item> implements Iterable<Item>, IStack<Item> {
-    private int n;          // size of the stack
-    private Node first;     // top of stack
+	/**
+	 * Tamaño de la pila.
+	 */
+    private int n;         
+    
+    /**
+     * Tope de la pila.
+     */
+    private Node first;     
 
-    // helper linked list class
+    
     private class Node {
+    	
+    	/**
+    	 *Referencia al item actual. 
+    	 */
         private Item item;
+        
+        /**
+         * Referencia al siguiente.
+         */
         private Node next;
     }
 
    /**
-     * Initializes an empty stack.
+     * Inicializa una pila vacía.
      */
     public Stack() {
         first = null;
@@ -28,27 +43,27 @@ public class Stack<Item> implements Iterable<Item>, IStack<Item> {
     }
 
     /**
-     * Returns true if this stack is empty.
+     * Retorna True si la pila está vacía.
      *
-     * @return true if this stack is empty; false otherwise
+     * @return true si la pila es vacía, false de lo contrario.
      */
     public boolean isEmpty() {
         return first == null;
     }
 
     /**
-     * Returns the number of items in this stack.
+     * Retorna el número de items en la pila.
      *
-     * @return the number of items in this stack
+     * @return Número de items en la pila.
      */
     public int size() {
         return n;
     }
 
     /**
-     * Adds the item to this stack.
+     * Añade el elemento a la pila.
      *
-     * @param  item the item to add
+     * @param  item Item a agregar.
      */
     public void push(Item item) {
         Node oldfirst = first;
@@ -59,10 +74,10 @@ public class Stack<Item> implements Iterable<Item>, IStack<Item> {
     }
 
     /**
-     * Removes and returns the item most recently added to this stack.
+     * Elimina y retorna el item más recientemente agregado a la pila.
      *
-     * @return the item most recently added
-     * @throws NoSuchElementException if this stack is empty
+     * @return Item más recientemente añadido.
+     * @throws NoSuchElementException Si la pila está vacía.
      */
     public Item pop() {
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");
@@ -74,10 +89,10 @@ public class Stack<Item> implements Iterable<Item>, IStack<Item> {
 
 
     /**
-     * Returns (but does not remove) the item most recently added to this stack.
+     * Retorna el item más recientemente añadido a la pila.
      *
-     * @return the item most recently added to this stack
-     * @throws NoSuchElementException if this stack is empty
+     * @return Item añadido más recientemente a la pila.
+     * @throws NoSuchElementException Si la pila es vacía.
      */
     public Item peek() {
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");
@@ -85,9 +100,9 @@ public class Stack<Item> implements Iterable<Item>, IStack<Item> {
     }
 
     /**
-     * Returns a string representation of this stack.
+     * Retorna una representación en String de la pila.
      *
-     * @return the sequence of items in this stack in LIFO order, separated by spaces
+     * @return Secuencia de items en la pila en orden LIFO, separados por espacio.
      */
     public String toString() {
         StringBuilder s = new StringBuilder();
@@ -100,9 +115,9 @@ public class Stack<Item> implements Iterable<Item>, IStack<Item> {
        
 
     /**
-     * Returns an iterator to this stack that iterates through the items in LIFO order.
+     * Retorna un iterador de la pila que itera sobre los elementos de ésta en orden LIFO.
      *
-     * @return an iterator to this stack that iterates through the items in LIFO order
+     * @return Iterador de la pila que itera en orden LIFO.
      */
     public Iterator<Item> iterator()  { return new ListIterator();  }
 

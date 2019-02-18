@@ -3,7 +3,6 @@ package model.data_structures;
 /**
  * 
  * @author Mario Hurtado
- *
  * @param <Item>
  */
 public interface IQueue<Item> extends Iterable<Item>{

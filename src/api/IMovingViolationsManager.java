@@ -16,16 +16,16 @@ public interface IMovingViolationsManager {
 	void loadMovingViolations(String movingViolationsFile);
 	
 	/**
-	 * 
-	 * @param violationCode
-	 * @return
+	 * Método para cargar la información de los archivos por código de violación.
+	 * @param violationCode Código de violación.
+	 * @return Lista con las violaciones por código.
 	 */
 	public LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode);
 	
 	/**
-	 * 
-	 * @param accidentIndicator
-	 * @return
+	 * Método que obtiene las infracciones por accidente.
+	 * @param accidentIndicator String que representa el indicador del accidente.
+	 * @return Lista con los las infracciones por accidente.
 	 */
 	public LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator);
 
