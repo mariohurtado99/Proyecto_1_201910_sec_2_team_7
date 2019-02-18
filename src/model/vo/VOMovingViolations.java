@@ -2,6 +2,7 @@ package model.vo;
 
 /**
  * Representation of a Trip object
+ * @author Mario Hurtado
  */
 public class VOMovingViolations {
 

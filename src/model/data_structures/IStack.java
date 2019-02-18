@@ -1,5 +1,11 @@
 package model.data_structures;
 
+/**
+ * 
+ * @author Mario Hurtado
+ *
+ * @param <Item>
+ */
 public interface IStack<Item> extends Iterable<Item>{
 	
 	/**

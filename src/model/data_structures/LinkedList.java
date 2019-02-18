@@ -10,24 +10,24 @@ import java.util.Iterator;
 public class LinkedList<T> implements ILinkedList<T> {
 
 	/**
-	 * 
+	 * Atributo que define el tamaño de la lista.
 	 */
 	private static int tamano;
 	
 	/**
-	 * 
+	 * Primer elemento de la lista.
 	 */
 	private Node head;
  
 	/**
-	 * 
+	 * Método constructor.
 	 */
 	public LinkedList() {
  
 	}
  
 	/**
-	 * 
+	 * @see ILinkedList#add(Object).
 	 */
 	public void add(T data ) {
 		if (head == null) {
@@ -45,30 +45,30 @@ public class LinkedList<T> implements ILinkedList<T> {
 	}
  
 	/**
-	 * 
+	 * @see ILinkedList#getCounter()
 	 */
 	public int getCounter() {
 		return tamano;
 	}
  
 	/**
-	 * 
+	 * Método que incrementa el tamaño de la lista.
 	 */
 	private static void incrementCounter() {
 		tamano++;
 	}
  
 	/**
-	 * 
+	 * Método que resta 1 al tamaño de la lista.
 	 */
 	private void decrementCounter() {
 		tamano--;
 	}
  
 	/**
-	 * 
-	 * @param data
-	 * @param index
+	 * Método que agrega un elemento a la lista en el índice pasado por parámetro.
+	 * @param data Objeto a insertar.
+	 * @param index Índice en donde se va a insertar.
 	 */
 	public void add(Object data, int index) {
 		Node crunchifyTemp = new Node(data);
@@ -177,7 +177,4 @@ public class LinkedList<T> implements ILinkedList<T> {
 	        };
 
 	    }
-	
-
-
 }

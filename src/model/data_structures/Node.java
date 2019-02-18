@@ -1,5 +1,11 @@
 package model.data_structures;
 
+/**
+ * 
+ * @author Mario Hurtado
+ *
+ * @param <T>
+ */
 public class Node<T> {
 
 	private Node<T> siguiente;

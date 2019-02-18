@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 /**
  * 
- * @author Mario
+ * @author Mario Hurtado
  * Cola ejemplo sacada de: https://introcs.cs.princeton.edu/java/43stack/Queue.java.html
  * @param <Item>
  */

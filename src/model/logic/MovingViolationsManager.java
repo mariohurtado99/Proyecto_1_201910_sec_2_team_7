@@ -1,6 +1,4 @@
 package model.logic;
-
-
 import api.IMovingViolationsManager;
 import model.vo.VOMovingViolations;
 import model.data_structures.ILinkedList;
@@ -16,10 +14,11 @@ import java.time.Clock;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
-
-
-
-
+/**
+ * 
+ * @author Mario Hurtado
+ *
+ */
 public class MovingViolationsManager implements IMovingViolationsManager {
 
 	
@@ -44,7 +43,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 												,nextLine[7],nextLine[8],nextLine[9],nextLine[10],nextLine[11],nextLine[12],nextLine[13]
 												,nextLine[14],nextLine[15],nextLine[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando1");
 					}
 					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_February_2018.csv"));
 					String [] nextLine2;
@@ -57,7 +56,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine2[7],nextLine2[8],nextLine2[9],nextLine2[10],nextLine2[11],nextLine2[12],nextLine2[13]
 										,nextLine2[14],nextLine2[15],nextLine2[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando2");
 					}
 					
 					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_March_2018.csv"));
@@ -71,7 +70,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine3[7],nextLine3[8],nextLine3[9],nextLine3[10],nextLine3[11],nextLine3[12],nextLine3[13]
 										,nextLine3[14],nextLine3[15],nextLine3[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando3");
 					}
 					
 					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_April_2018.csv"));
@@ -85,7 +84,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine4[7],nextLine4[8],nextLine4[9],nextLine4[10],nextLine4[11],nextLine4[12],nextLine4[13]
 										,nextLine4[14],nextLine4[15],nextLine4[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando4");
 					}
 					
 				} catch (IOException e) {
@@ -118,7 +117,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 												,nextLine[7],nextLine[8],nextLine[9],nextLine[10],nextLine[11],nextLine[12],nextLine[13]
 												,nextLine[14],nextLine[15],nextLine[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando5");
 					}
 					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_June_2018.csv"));
 					String [] nextLine2;
@@ -131,7 +130,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine2[7],nextLine2[8],nextLine2[9],nextLine2[10],nextLine2[11],nextLine2[12],nextLine2[13]
 										,nextLine2[14],nextLine2[15],nextLine2[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando6");
 					}
 					
 					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_July_2018.csv"));
@@ -145,7 +144,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine3[7],nextLine3[8],nextLine3[9],nextLine3[10],nextLine3[11],nextLine3[12],nextLine3[13]
 										,nextLine3[14],nextLine3[15],nextLine3[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando7");
 					}
 					
 					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_August_2018.csv"));
@@ -159,7 +158,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine4[7],nextLine4[8],nextLine4[9],nextLine4[10],nextLine4[11],nextLine4[12],nextLine4[13]
 										,nextLine4[14],nextLine4[15],nextLine4[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando8");
 					}
 					
 				} catch (IOException e) {
@@ -193,7 +192,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 												,nextLine[7],nextLine[8],nextLine[9],nextLine[10],nextLine[11],nextLine[12],nextLine[13]
 												,nextLine[14],nextLine[15],nextLine[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando9");
 					}
 					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_October_2018.csv"));
 					String [] nextLine2;
@@ -206,7 +205,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine2[7],nextLine2[8],nextLine2[9],nextLine2[10],nextLine2[11],nextLine2[12],nextLine2[13]
 										,nextLine2[14],nextLine2[15],nextLine2[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando10");
 					}
 					
 					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_November_2018.csv"));
@@ -220,7 +219,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine3[7],nextLine3[8],nextLine3[9],nextLine3[10],nextLine3[11],nextLine3[12],nextLine3[13]
 										,nextLine3[14],nextLine3[15],nextLine3[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando11");
 					}
 					
 					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_December_2018.csv"));
@@ -235,7 +234,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine4[7],nextLine4[8],nextLine4[9],nextLine4[10],nextLine4[11],nextLine4[12],nextLine4[13]
 										,nextLine4[14],nextLine4[15],nextLine4[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando");
+						System.out.println("mapeando12");
 					}
 					
 				} catch (IOException e) {

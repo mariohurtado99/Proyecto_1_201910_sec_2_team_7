@@ -5,6 +5,11 @@ import model.data_structures.LinkedList;
 import model.logic.MovingViolationsManager;
 import model.vo.VOMovingViolations;
 
+/**
+ * 
+ * @author Mario Hurtado
+ *
+ */
 public class Controller {
 
 	/**

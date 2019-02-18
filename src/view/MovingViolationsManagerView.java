@@ -7,6 +7,11 @@ import model.data_structures.ILinkedList;
 import model.data_structures.LinkedList;
 import model.vo.VOMovingViolations;
 
+/**
+ * 
+ * @author Mario Hurtado
+ *
+ */
 public class MovingViolationsManagerView 
 {
 	public static void main(String[] args) 

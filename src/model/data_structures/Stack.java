@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 /**
  * 
- * @author Mario
+ * @author Mario Hurtado
  * Stack ejemplo sacada de: https://introcs.cs.princeton.edu/java/43stack/Stack.java.html
  * @param <Item>
  */

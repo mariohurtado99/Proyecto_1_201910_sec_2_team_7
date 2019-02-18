@@ -1,16 +1,29 @@
 package model.data_structures;
 
 /**
- * Abstract Data Type for a linked list of generic objects
- * This ADT should contain the basic operations to manage a list
- * add, addAtEnd, AddAtK, getElement, getCurrentElement, getSize, delete, deleteAtK
- * next, previous
- * @param <T>
+ * 
+ * @author Mario Hurtado
+ * @param <T> clase genérica
  */
 public interface ILinkedList<T> extends Iterable<T> {
 
+	/**
+	 * Método que da el tamaño de la lista.
+	 * @return
+	 */
 	public int getCounter();
+	
+	/**
+	 * Método que agrega un objeto a la lista.
+	 * @param obj Objeto a agregar.
+	 */
 	public void add(T obj);
+	
+	/**
+	 * Método que obtiene la información de un elemento de la lista.
+	 * @param i Índice de la lista.
+	 * @return Información que hay en el elemento con el índice i de la lista.
+	 */
 	public T get(int i);
 //	public void agregar(Node<T> obj) ;
 //	public T darObj(int pos);

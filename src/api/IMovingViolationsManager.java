@@ -4,19 +4,29 @@ import model.data_structures.LinkedList;
 import model.vo.VOMovingViolations;
 
 /**
- * Basic API for testing the functionality of the STS manager
+ * Interface para los servicios de MovingViolationManager
+ * @author Mario Hurtado
  */
 public interface IMovingViolationsManager {
 
 	/**
-	 * Method to load the Moving Violations of the STS
-	 * @param movingViolationsFile - path to the file 
+	 * Método para cargar la información de los archivos
+	 * @param movingViolationsFile 
 	 */
 	void loadMovingViolations(String movingViolationsFile);
 	
+	/**
+	 * 
+	 * @param violationCode
+	 * @return
+	 */
 	public LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode);
 	
-	
+	/**
+	 * 
+	 * @param accidentIndicator
+	 * @return
+	 */
 	public LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator);
 
 	
