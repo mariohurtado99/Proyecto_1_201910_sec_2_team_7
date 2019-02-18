@@ -25,7 +25,7 @@ public interface IQueue<Item> extends Iterable<Item>{
 	 */
 	public void enqueue(Item t);
 	
-	/**
+	/** 
 	 * Quita y retorna el elemento agregado menos recientemente
 	 * @return el elemento agregado menos recientemente
 	 */

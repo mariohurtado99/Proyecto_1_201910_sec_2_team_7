@@ -156,5 +156,5 @@ public class Queue<Item> implements Iterable<Item>, IQueue<Item> {
             current = current.next;
             return item;
         }
-    }
+    } 
 }

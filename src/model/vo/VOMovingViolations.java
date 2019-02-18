@@ -10,7 +10,7 @@ public class VOMovingViolations {
 	 * Id del objeto
 	 */
 	private String objectId;
-	
+
 	/**
 	 * row
 	 */
@@ -80,7 +80,7 @@ public class VOMovingViolations {
 	 * Código violado.
 	 */
 	private String violationCode;
-	
+
 	/**
 	 * Descripción de la violación.
 	 */
@@ -369,6 +369,4 @@ public class VOMovingViolations {
 	public void setRowId(String rowId) {
 		this.rowId = rowId;
 	}
-
-
-	}
+}

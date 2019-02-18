@@ -20,7 +20,7 @@ public class QueueTest extends TestCase{
 		assertEquals( false, cola.isEmpty());
 		cola.dequeue();
 		assertEquals(true, cola.isEmpty());
-	}
+	} 
 	
 	/**
 	 * Test del método size() de la clase IQueue.

@@ -132,6 +132,6 @@ public class Stack<Item> implements Iterable<Item>, IStack<Item> {
             Item item = current.item;
             current = current.next; 
             return item;
-        }
+        } 
     }
 }

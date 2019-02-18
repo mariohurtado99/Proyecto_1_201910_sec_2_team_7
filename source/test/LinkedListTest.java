@@ -20,7 +20,7 @@ public class LinkedListTest extends TestCase{
 		ILinkedList<Integer> arreglo = new LinkedList<>();
 		arreglo.add(1);
 		arreglo.add(2);
-		arreglo.add(3);
+		arreglo.add(3); 
 		arreglo.add(4);
 		arreglo.add(5);
 		assertEquals(5, arreglo.getCounter());

@@ -74,7 +74,7 @@ public class Node<T> {
 
 	/**
 	 * Método que retorna el dato actual.
-	 * @return Dato actual.
+	 * @return Dato actual. 
 	 */
 	public T getDato() {
 		return dato;

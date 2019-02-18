@@ -25,7 +25,7 @@ public interface IMovingViolationsManager {
 	/**
 	 * Método que obtiene las infracciones por accidente.
 	 * @param accidentIndicator String que representa el indicador del accidente.
-	 * @return Lista con los las infracciones por accidente.  
+	 * @return Lista con los las infracciones por accidente.
 	 */
 	public LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator);
 

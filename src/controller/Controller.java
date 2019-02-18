@@ -39,9 +39,9 @@ public class Controller {
 	
 	/**
 	 * @see IMovingViolationsManager#getMovingViolationsByAccident(String).
-	 * @param accidentIndicator
+	 * @param accidentIndicator 
 	 * @return
-	 */
+	 */ 
 	public static LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator) {
 		return manager.getMovingViolationsByAccident(accidentIndicator);
 	}

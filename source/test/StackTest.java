@@ -81,5 +81,5 @@ public class StackTest extends TestCase {
 		pila.pop();
 		
 		assertEquals(true, pila.isEmpty());
-	}
+	} 
 }

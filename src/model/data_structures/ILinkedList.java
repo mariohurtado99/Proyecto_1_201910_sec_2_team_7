@@ -23,7 +23,7 @@ public interface ILinkedList<T> extends Iterable<T> {
 	 * Método que obtiene la información de un elemento de la lista.
 	 * @param i Índice de la lista.
 	 * @return Información que hay en el elemento con el índice i de la lista.
-	 */
+	 */ 
 	public T get(int i);
 //	public void agregar(Node<T> obj) ;
 //	public T darObj(int pos);

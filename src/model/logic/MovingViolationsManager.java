@@ -32,7 +32,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 	 */
 	public void loadMovingViolations(String movingViolationsFile){
 //		listaViolaciones= new CsvToBeanBuilder(new FileReader(movingViolationsFile)).withType(VOMovingViolations.class).build().parse();
-		System.out.println("ejecuto");
+		System.out.println("ejecuto"); 
 		if(movingViolationsFile.equals("1")) {
 			System.out.println("1 aquiiii");
 			try {

@@ -29,6 +29,6 @@ public interface IStack<Item> extends Iterable<Item>{
 	/**
 	 * Quita y retorna el elemento agregado más recientemente
 	 * @return el elemento agregado más recientemente
-	 */
+	 */ 
 	public Item pop();	
 }
