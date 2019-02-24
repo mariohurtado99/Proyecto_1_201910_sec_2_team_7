@@ -45,4 +45,9 @@ public class Controller {
 	public static LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator) {
 		return manager.getMovingViolationsByAccident(accidentIndicator);
 	}
+
+	public static LinkedList <VOMovingViolations> verificarObjectID() {
+		return  manager.verificarObjectID();
+		
+	}
 }

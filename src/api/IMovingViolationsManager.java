@@ -29,5 +29,7 @@ public interface IMovingViolationsManager {
 	 */
 	public LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator);
 
+	public LinkedList <VOMovingViolations> verificarObjectID();
+
 	
 }
