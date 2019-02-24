@@ -39,6 +39,10 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 				listaViolaciones= new LinkedList<>();
 				CSVReader reader = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_January_2018.csv"));
 				String [] nextLine;
+				int contador1 =0;
+				int contador2=0;
+				int contador3=0;
+				int contador4=0;
 				try {
 					reader.readNext();
 					while ((nextLine = reader.readNext()) != null) {
@@ -49,9 +53,11 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 												,nextLine[14],nextLine[15],nextLine[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando1");
+						contador1++;
 					}
 					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_February_2018.csv"));
 					String [] nextLine2;
+					
 
 					reader2.readNext();
 					while ((nextLine2 = reader2.readNext()) != null) {
@@ -62,11 +68,12 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 										,nextLine2[14],nextLine2[15],nextLine2[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando2");
+						contador2++;
 					}
 					
 					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_March_2018.csv"));
 					String [] nextLine3;
-
+					
 					reader3.readNext();
 					while ((nextLine3 = reader3.readNext()) != null) {
 
@@ -76,11 +83,12 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 										,nextLine3[14],nextLine3[15],nextLine3[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando3");
+						contador3++;
 					}
 					
 					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_April_2018.csv"));
 					String [] nextLine4;
-
+					
 					reader4.readNext();
 					while ((nextLine4 = reader4.readNext()) != null) {
 
@@ -90,6 +98,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 										,nextLine4[14],nextLine4[15],nextLine4[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando4");
+						contador4++;
 					}
 					
 				} catch (IOException e) {
@@ -99,6 +108,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 					
 					
 				System.out.println("terminado"+System.currentTimeMillis());
+				System.out.println("Se han cargado (infracciones): Enero: "+ contador1+" ; Febrero: "+contador2+" ; Marzo: "+contador3+" ; Abril: "+contador4+". \nY en total este cuatrimestre: "+(contador1+contador2+contador3+contador4)+".") ;
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -113,6 +123,10 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 				listaViolaciones= new LinkedList<>();
 				CSVReader reader = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_May_2018.csv"));
 				String [] nextLine;
+				int contador5 =0;
+				int contador6=0;
+				int contador7=0;
+				int contador8=0;
 				try {
 					reader.readNext();
 					while ((nextLine = reader.readNext()) != null) {
@@ -123,6 +137,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 												,nextLine[14],nextLine[15],nextLine[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando5");
+						contador5++;
 					}
 					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_June_2018.csv"));
 					String [] nextLine2;
@@ -136,6 +151,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 										,nextLine2[14],nextLine2[15],nextLine2[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando6");
+						contador6++;
 					}
 					
 					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_July_2018.csv"));
@@ -150,6 +166,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 										,nextLine3[14],nextLine3[15],nextLine3[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando7");
+						contador7++;
 					}
 					
 					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_August_2018.csv"));
@@ -164,6 +181,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 										,nextLine4[14],nextLine4[15],nextLine4[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando8");
+						contador8++;
 					}
 					
 				} catch (IOException e) {
@@ -173,6 +191,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 					
 					
 				System.out.println("terminado"+System.currentTimeMillis());
+				System.out.println("Se han cargado (infracciones): Mayo: "+ contador5+" ; Junio: "+contador6+" ; Julio: "+contador7+" ; Agosto: "+contador8+". \nY en total este cuatrimestre: "+(contador5+contador6+contador7+contador8)+".") ;
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -188,6 +207,10 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 				listaViolaciones= new LinkedList<>();
 				CSVReader reader = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_September_2018.csv"));
 				String [] nextLine;
+				int contador9 =0;
+				int contador10=0;
+				int contador11=0;
+				int contador12=0;
 				try {
 					reader.readNext();
 					while ((nextLine = reader.readNext()) != null) {
@@ -198,6 +221,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 												,nextLine[14],nextLine[15],nextLine[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando9");
+						contador9++;
 					}
 					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_October_2018.csv"));
 					String [] nextLine2;
@@ -211,6 +235,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 										,nextLine2[14],nextLine2[15],nextLine2[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando10");
+						contador10++;
 					}
 					
 					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_November_2018.csv"));
@@ -225,6 +250,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 										,nextLine3[14],nextLine3[15],nextLine3[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando11");
+						contador11++;
 					}
 					
 					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_December_2018.csv"));
@@ -240,6 +266,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 										,nextLine4[14],nextLine4[15],nextLine4[16]);
 						listaViolaciones.add(mV);
 						System.out.println("mapeando12");
+						contador12++;
 					}
 					
 				} catch (IOException e) {
@@ -249,6 +276,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 					
 					
 				System.out.println("terminado"+System.currentTimeMillis());
+				System.out.println("Se han cargado (infracciones): Septiembre: "+ contador9+" ; Octubre: "+contador10+" ; Noviembre: "+contador11+" ; Diciembre: "+contador12+". \nY en total este cuatrimestre: "+(contador9+contador10+contador11+contador12)+".") ;
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
