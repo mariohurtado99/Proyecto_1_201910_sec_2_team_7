@@ -13,23 +13,24 @@ public class LinkedList<T> implements ILinkedList<T> {
 	 * Atributo que define el tamaño de la lista.
 	 */
 	private static int tamano;
-	
+
 	/**
 	 * Primer elemento de la lista.
 	 */
 	private Node head;
- 
+
 	/**
 	 * Método constructor.
 	 */
 	public LinkedList() {
- 
+
 	}
- 
+
 	/**
 	 * @see ILinkedList#add(Object).
 	 */
 	public void add(T data ) {
+		
 		if (head == null) {
 			head = new Node(data);
 		}
@@ -40,37 +41,39 @@ public class LinkedList<T> implements ILinkedList<T> {
 				crunchifyCurrent = crunchifyCurrent.getSiguiente();
 			}
 			crunchifyCurrent.setSiguiente(crunchifyTemp);
+			System.out.println("AÑADÍ"+ crunchifyCurrent);
 		}
 		incrementCounter();
 	}
- 
+
 	/**
 	 * @see ILinkedList#getCounter()
 	 */
 	public int getCounter() {
 		return tamano;
 	}
- 
+
 	/**
 	 * Método que incrementa el tamaño de la lista.
 	 */
 	private static void incrementCounter() {
 		tamano++;
 	}
- 
+
 	/**
 	 * Método que resta 1 al tamaño de la lista.
 	 */
 	private void decrementCounter() {
 		tamano--;
 	}
- 
+
 	/**
 	 * Método que agrega un elemento a la lista en el índice pasado por parámetro.
 	 * @param data Objeto a insertar.
 	 * @param index Índice en donde se va a insertar.
 	 */
 	public void add(Object data, int index) {
+		System.out.println("AÑADÍ en index");
 		Node crunchifyTemp = new Node(data);
 		Node crunchifyCurrent = head;
 		if (crunchifyCurrent != null) {
@@ -82,29 +85,43 @@ public class LinkedList<T> implements ILinkedList<T> {
 		crunchifyCurrent.setSiguiente(crunchifyTemp);
 		incrementCounter();
 	}
-	
+
 	/**
 	 * @see ILinkedList#get(int).
 	 */
 	public T get(int index)
 	{
-		if (index < 0)
-			return null;
-		Node crunchifyCurrent = null;
-		if (head != null) {
-			crunchifyCurrent = head.getSiguiente();
-			for (int i = 0; i < index; i++) {
-				if (crunchifyCurrent.getSiguiente() == null)
-					return null;
- 
-				crunchifyCurrent = crunchifyCurrent.getSiguiente();
+
+//	if(head!=null||index>tamano-1||index<0) {
+//		Node current=head;
+//		if(index==0) return (T) current.getDato();
+//		int actual=1;
+//		
+//		while(index<actual) {
+//			current=current.getSiguiente();
+//			actual++;
+//		}
+//		return  (T) current.getDato();
+//	}
+//	else {return null;}
+
+			if (index < 0)
+				return null;
+			Node crunchifyCurrent = head;
+			if (crunchifyCurrent != null) {
+				crunchifyCurrent = head.getSiguiente();
+				for (int i = 0; i < index; i++) {
+					if (crunchifyCurrent.getSiguiente() == null)
+						return null;
+	 
+					crunchifyCurrent = crunchifyCurrent.getSiguiente();
+				}
+				return (T) crunchifyCurrent.getDato();
 			}
-			return (T) crunchifyCurrent.getDato();
-		}
-		return (T) crunchifyCurrent;
- 
+			return (T) crunchifyCurrent;
+
 	}
-	
+
 	/**
 	 * Quita el elemento con el índice dado por parámetro.
 	 * @param index Índice de donde se va a quitar el elemento.
@@ -118,17 +135,17 @@ public class LinkedList<T> implements ILinkedList<T> {
 			for (int i = 0; i < index; i++) {
 				if (crunchifyCurrent.getSiguiente() == null)
 					return false;
- 
+
 				crunchifyCurrent = crunchifyCurrent.getSiguiente();
 			}
 			crunchifyCurrent.setSiguiente(crunchifyCurrent.getSiguiente().getSiguiente());
 			decrementCounter();
 			return true;
- 
+
 		}
 		return false;
 	}
- 
+
 	/**
 	 * @see ILinkedList#getCounter().
 	 * @return
@@ -136,57 +153,57 @@ public class LinkedList<T> implements ILinkedList<T> {
 	public int size() {
 		return getCounter();
 	}
-	
+
 	/**
 	 * Muestra la representación de la clase en Strings.
 	 */
 	public String toString() {
 		String output = "";
- 
+
 		if (head != null) {
 			Node crunchifyCurrent = head.getSiguiente();
 			while (crunchifyCurrent != null) {
 				output += "[" + crunchifyCurrent.getDato().toString() + "]";
 				crunchifyCurrent = crunchifyCurrent.getSiguiente();
 			}
- 
+
 		}
 		return output;
 	}
-	
-	
+
+
 	/**
 	 * Iterador 
 	 */
-	 public Iterator<T> iterator() {
-	        return new Iterator<T>() {
+	public Iterator<T> iterator() {
+		return new Iterator<T>() {
 
-	        	/**
-	        	 * 
-	        	 */
-	            Node current = head;
+			/**
+			 * 
+			 */
+			Node current = head;
 
-	            @Override
-	            public boolean hasNext() {
-	                return current != null;
-	            }
+			@Override
+			public boolean hasNext() {
+				return current != null;
+			}
 
-	            @Override
-	            public T next() {
-	                if (hasNext()) {
-	                    T data = (T) current.getDato();
-	                    current = current.getSiguiente();
-	                    return data;
-	                }
-	                return null;
-	            }
+			@Override
+			public T next() {
+				if (hasNext()) {
+					T data = (T) current.getDato();
+					current = current.getSiguiente();
+					return data;
+				}
+				return null;
+			}
 
-	            @Override
-	            public void remove() {
-	                throw new UnsupportedOperationException("Remove not implemented.");
-	            }
+			@Override
+			public void remove() {
+				throw new UnsupportedOperationException("Remove not implemented.");
+			}
 
-	        };
- 
-	    }
+		};
+
+	}
 }

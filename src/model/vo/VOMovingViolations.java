@@ -1,5 +1,10 @@
 package model.vo;
 
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Representation of a Trip object
  * @author Mario Hurtado
@@ -74,7 +79,7 @@ public class VOMovingViolations {
 	/**
 	 * Fecha del ticket.
 	 */
-	private String ticketIssue;
+	private Date ticketIssue;
 
 	/**
 	 * Código violado.
@@ -126,7 +131,7 @@ public class VOMovingViolations {
 		this.penalty1 = penalty1;
 		this.penalty2 = penalty2;
 		this.accidentId = accidentId;
-		this.ticketIssue = ticketIssue;
+		this.setTicketIssue(ticketIssue);;
 		this.violationCode = violationCode;
 		this.violationDesc = violationDesc;
 		this.rowId = rowId;
@@ -317,7 +322,7 @@ public class VOMovingViolations {
 	/**
 	 * @return the ticketIssue
 	 */
-	public String getTicketIssue() {
+	public Date getTicketIssue() {
 		return ticketIssue;
 	}
 
@@ -325,7 +330,21 @@ public class VOMovingViolations {
 	 * @param ticketIssue the ticketIssue to set
 	 */
 	public void setTicketIssue(String ticketIssue) {
-		this.ticketIssue = ticketIssue;
+		
+ String[] fecha=ticketIssue.split(".000Z");
+ String []fechaa=fecha[0].split("T");
+ System.out.println("("+fechaa[0]+")"+"("+fechaa[1]+")");
+
+String completa=fechaa[0]+fechaa[1];
+
+		SimpleDateFormat SDF=new SimpleDateFormat("yyyy-MM-ddhh:mm:ss");
+		try {
+			Date esto =SDF.parse(completa);
+			this.ticketIssue=esto;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**

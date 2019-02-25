@@ -50,4 +50,9 @@ public class Controller {
 		return  manager.verificarObjectID();
 		
 	}
+
+	public static LinkedList<VOMovingViolations> ConsultarInfraccionesFecha(String fechaInicial, String fechaFinal) throws Exception {
+		// TODO Auto-generated method stub
+		return manager.ConsultarInfraccionesFecha(fechaInicial,fechaFinal);
+	}
 }

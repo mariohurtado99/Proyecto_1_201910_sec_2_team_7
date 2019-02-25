@@ -14,14 +14,14 @@ public interface IMovingViolationsManager {
 	 * @param movingViolationsFile 
 	 */
 	void loadMovingViolations(String movingViolationsFile);
-	
+
 	/**
 	 * Método para cargar la información de los archivos por código de violación.
 	 * @param violationCode Código de violación.
 	 * @return Lista con las violaciones por código.
 	 */
 	public LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode);
-	
+
 	/**
 	 * Método que obtiene las infracciones por accidente.
 	 * @param accidentIndicator String que representa el indicador del accidente.
@@ -31,5 +31,7 @@ public interface IMovingViolationsManager {
 
 	public LinkedList <VOMovingViolations> verificarObjectID();
 
-	
+	public LinkedList<VOMovingViolations> ConsultarInfraccionesFecha(String fechaInicial,String fechaFinal) throws Exception;
+
+
 }

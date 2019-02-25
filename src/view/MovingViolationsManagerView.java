@@ -1,5 +1,6 @@
 package view;
 
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import controller.Controller;
@@ -77,6 +78,24 @@ public class MovingViolationsManagerView
 					System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
 				}
 				break;
+			case 6:	
+
+				System.out.println("Ingrese la fecha inicial de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
+				String fechaInicial=sc.next();
+				System.out.println("Ingrese la fecha final de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
+				String fechaFinal=sc.next();
+
+				try {
+					LinkedList<VOMovingViolations> resultado=Controller.ConsultarInfraccionesFecha(fechaInicial,fechaFinal);
+					for (VOMovingViolations violations : resultado) 
+					{
+						System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
+					}
+					
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+				break;
 			}
 
 
@@ -94,6 +113,7 @@ public class MovingViolationsManagerView
 		System.out.println("3. Dar listado de infracciones reportadas de acuerdo a si hay o no accidente reportado");
 		System.out.println("4. Salir");
 		System.out.println("5. [1.A] verificar OBJECTID es identificador único");
+		System.out.println("6. [2.A] consultar infracciones por fecha");
 		System.out.println("Digite el número de opción para ejecutar la tarea, luego presione enter: (Ej., 1):");
 
 	}  

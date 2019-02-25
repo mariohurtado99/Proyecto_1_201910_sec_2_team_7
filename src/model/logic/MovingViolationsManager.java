@@ -10,7 +10,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Clock;
+import java.util.Date;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
@@ -52,7 +55,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine[7],nextLine[8],nextLine[9],nextLine[10],nextLine[11],nextLine[12],nextLine[13]
 										,nextLine[14],nextLine[15],nextLine[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando1");
+						System.out.println("mapeando1: " + mV);
 						contador1++;
 					}
 					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_February_2018.csv"));
@@ -67,7 +70,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine2[7],nextLine2[8],nextLine2[9],nextLine2[10],nextLine2[11],nextLine2[12],nextLine2[13]
 										,nextLine2[14],nextLine2[15],nextLine2[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando2");
+						System.out.println("mapeando2: " + mV);
 						contador2++;
 					}
 
@@ -82,7 +85,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine3[7],nextLine3[8],nextLine3[9],nextLine3[10],nextLine3[11],nextLine3[12],nextLine3[13]
 										,nextLine3[14],nextLine3[15],nextLine3[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando3");
+						System.out.println("mapeando3: " + mV);
 						contador3++;
 					}
 
@@ -97,7 +100,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine4[7],nextLine4[8],nextLine4[9],nextLine4[10],nextLine4[11],nextLine4[12],nextLine4[13]
 										,nextLine4[14],nextLine4[15],nextLine4[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando4");
+						System.out.println("mapeando4: " + mV);
 						contador4++;
 					}
 
@@ -325,19 +328,66 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 	@Override
 	public LinkedList <VOMovingViolations> verificarObjectID() {
 		LinkedList<VOMovingViolations> repetidas=new LinkedList<>();
-		int contador=0;
-		for (int j =0; j < listaViolaciones.getCounter(); j++) {
-			for (int i = j+1; i <listaViolaciones.getCounter(); i++) {
-				System.out.println("van: "+contador);
-				contador++;
-				if(listaViolaciones.get(i).getObjectId().compareTo(listaViolaciones.get(j).getObjectId())==0) {
-					repetidas.add(listaViolaciones.get(j));
-					break;
-				}
+		VOMovingViolations ii=null;
+		for (int i = 0; i < listaViolaciones.getCounter(); i++) {
+			if(i+1<listaViolaciones.getCounter()) {
+				ii=listaViolaciones.get(i);
 
+				VOMovingViolations jj=null;
+				for (int j = i+1; j <listaViolaciones.getCounter(); j++) {
+					jj=listaViolaciones.get(j);
+					System.out.println(i+"objeto1: "+ii.getObjectId());
+					System.out.println(j+" -objeto2: "+jj.getObjectId());
+					if(ii.equals(jj)) {
+						//	repetidas.add(jj);
+					}
+					System.out.println("counterlista: "+listaViolaciones.getCounter());
+				}
 			}
+
 		}
+
+		//		int contador=0;
+		//		for (int j =0; j < listaViolaciones.getCounter(); j++) {
+		//			for (int i = j+1; i <listaViolaciones.getCounter(); i++) {
+		//				System.out.println("van: "+contador+ " i= "+j+ "j= "+i);
+		//				contador++;
+		//				System.out.println("listaviolacionescounter "+listaViolaciones.getCounter());
+		//				if(listaViolaciones.get(i).getObjectId().compareTo(listaViolaciones.get(j).getObjectId())==0) {
+		////					repetidas.add(listaViolaciones.get(j));
+		//					break;
+		//				}
+		//
+		//			}
+		//		}
 		return repetidas;
+	}
+
+
+	@Override
+	public LinkedList<VOMovingViolations> ConsultarInfraccionesFecha(String fInicial, String fFinal) throws Exception {
+		LinkedList<VOMovingViolations> encontrados=new LinkedList<VOMovingViolations>();
+		try {
+			SimpleDateFormat SDF=new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+			Date fechaInicial=null;
+			Date fechaFinal=null;
+
+			fechaInicial= SDF.parse(fInicial);
+			System.out.println(fechaInicial);
+			fechaFinal=SDF.parse(fFinal);
+			System.out.println(fechaFinal);
+			for (int i = 0; i < listaViolaciones.getCounter(); i++) {
+				if(listaViolaciones.get(i).getTicketIssue().compareTo(fechaInicial)>=0&&listaViolaciones.get(i).getTicketIssue().compareTo(fechaFinal)<=0) {
+					encontrados.add(listaViolaciones.get(i));
+				}
+			}
+		} catch (ParseException e) {
+			
+//			Exception ee = new Exception("Error formato de fecha");
+			throw e;
+		}
+
+		return encontrados;
 	}	
 
 
