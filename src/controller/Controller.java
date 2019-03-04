@@ -2,6 +2,7 @@ package controller;
 
 import api.IMovingViolationsManager;
 import model.data_structures.ILinkedList;
+import model.data_structures.IQueue;
 import model.data_structures.LinkedList;
 import model.data_structures.Queue;
 import model.data_structures.Stack;
@@ -74,5 +75,20 @@ public class Controller {
 		// TODO Auto-generated method stub
 		System.out.println(fechaFinal);
 		return (Stack<VOMovingViolations>) manager.ConsultarInfraccionesDireccion(fechaInicial,fechaFinal, pAdressId);
+	}
+
+	public static IQueue ConsultarInfraccionesPromedioRango(String min, String max) {
+		return manager.ConsultarInfraccionesPromedioRango(min,max);
+		
+	}
+
+	public static Stack ConsultarInfraccionesPagadoRango(int min2, int max2, String orden) {
+		// TODO Auto-generated method stub
+		return manager.ConsultarInfraccionesPagadoRango( min2, max2,  orden);
+	}
+
+	public static IQueue ConsultarInfraccionesFecha2(String fechaInicial2, String fechaFinal2) {
+		// TODO Auto-generated method stub
+		return manager.ConsultarInfraccionesFecha2(fechaInicial2,fechaFinal2);
 	}
 }

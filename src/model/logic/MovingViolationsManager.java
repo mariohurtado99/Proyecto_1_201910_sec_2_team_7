@@ -6,6 +6,7 @@ import model.data_structures.IQueue;
 import model.data_structures.IStack;
 import model.data_structures.LinkedList;
 import model.data_structures.Node;
+import model.data_structures.Stack;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,8 +17,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Queue;
 
 import com.opencsv.CSVReader;
@@ -107,6 +110,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 //											System.out.println("mapeando4" );
 //											contador4++;
 //										}
+
 
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -377,6 +381,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 	public String darPromedio(String pViolationCode, LinkedList<VOMovingViolations>cargado) {
 		ILinkedList<VOMovingViolations> sinAccidente = new LinkedList<>();
 		ILinkedList<VOMovingViolations> conAccidente = new LinkedList<>();
+
 		int suma2 = 0;
 		int sum = 0;
 		double resp1 = 0;
@@ -391,8 +396,11 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 						sinAccidente.add(cargado.get(i));
 					else
 						conAccidente.add(cargado.get(i));
+
 				}
+
 		}
+
 
 		for (int i=0; i<sinAccidente.size(); i++) {
 			int a = Integer.parseInt(sinAccidente.get(i).getFine());
@@ -512,4 +520,26 @@ public IStack<VOMovingViolations> ConsultarInfraccionesDireccion(String pFechaIn
 
 	return encontrados;
 }
+
+
+@Override
+public IQueue ConsultarInfraccionesPromedioRango(String min, String max) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+
+@Override
+public Stack ConsultarInfraccionesPagadoRango(int min2, int max2, String orden) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+
+@Override
+public IQueue ConsultarInfraccionesFecha2(String fechaInicial2, String fechaFinal2) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
 }
