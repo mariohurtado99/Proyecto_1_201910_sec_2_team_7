@@ -41,7 +41,6 @@ public class LinkedList<T> implements ILinkedList<T> {
 				crunchifyCurrent = crunchifyCurrent.getSiguiente();
 			}
 			crunchifyCurrent.setSiguiente(crunchifyTemp);
-			System.out.println("AÑADÍ"+ crunchifyCurrent);
 		}
 		incrementCounter();
 	}
@@ -73,7 +72,6 @@ public class LinkedList<T> implements ILinkedList<T> {
 	 * @param index Índice en donde se va a insertar.
 	 */
 	public void add(Object data, int index) {
-		System.out.println("AÑADÍ en index");
 		Node crunchifyTemp = new Node(data);
 		Node crunchifyCurrent = head;
 		if (crunchifyCurrent != null) {
@@ -112,7 +110,7 @@ public class LinkedList<T> implements ILinkedList<T> {
 				crunchifyCurrent = head.getSiguiente();
 				for (int i = 0; i < index; i++) {
 					if (crunchifyCurrent.getSiguiente() == null)
-						return null;
+						return null;	
 	 
 					crunchifyCurrent = crunchifyCurrent.getSiguiente();
 				}

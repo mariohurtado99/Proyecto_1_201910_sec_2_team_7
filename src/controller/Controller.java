@@ -2,6 +2,8 @@ package controller;
 
 import api.IMovingViolationsManager;
 import model.data_structures.LinkedList;
+import model.data_structures.Queue;
+import model.data_structures.Stack;
 import model.logic.MovingViolationsManager;
 import model.vo.VOMovingViolations;
 
@@ -51,8 +53,25 @@ public class Controller {
 		
 	}
 
-	public static LinkedList<VOMovingViolations> ConsultarInfraccionesFecha(String fechaInicial, String fechaFinal) throws Exception {
+	public static Queue<VOMovingViolations> ConsultarInfraccionesFecha(String fechaInicial, String fechaFinal) throws Exception {
 		// TODO Auto-generated method stub
-		return manager.ConsultarInfraccionesFecha(fechaInicial,fechaFinal);
+		return (Queue<VOMovingViolations>) manager.ConsultarInfraccionesFecha(fechaInicial,fechaFinal);
+	}
+	
+	public static String darPromedio(String pViolationCode) {
+		return manager.darPromedio(pViolationCode);
+	}
+	
+	public static String darDesvEstandar(String pViolationCode) {
+		return manager.darDesvEstandar(pViolationCode);
+	}
+	
+	public static double deudaTotal(String pFechaInicial, String pFechaFinal) throws Exception{
+		return manager.deudaTotal(pFechaInicial, pFechaFinal);
+	}
+	
+	public static Stack<VOMovingViolations> ConsultarInfraccionesDireccion(String fechaInicial, String fechaFinal, String pAdressId) throws Exception {
+		// TODO Auto-generated method stub
+		return (Stack<VOMovingViolations>) manager.ConsultarInfraccionesDireccion(fechaInicial,fechaFinal, pAdressId);
 	}
 }

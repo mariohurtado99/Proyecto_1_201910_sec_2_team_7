@@ -1,6 +1,9 @@
 package api;
 
+import model.data_structures.IQueue;
+import model.data_structures.IStack;
 import model.data_structures.LinkedList;
+import model.data_structures.Queue;
 import model.vo.VOMovingViolations;
 
 /**
@@ -31,7 +34,13 @@ public interface IMovingViolationsManager {
 
 	public LinkedList <VOMovingViolations> verificarObjectID();
 
-	public LinkedList<VOMovingViolations> ConsultarInfraccionesFecha(String fechaInicial,String fechaFinal) throws Exception;
+	public IQueue<VOMovingViolations> ConsultarInfraccionesFecha(String fechaInicial,String fechaFinal) throws Exception;
+	
+	public String darPromedio(String pViolationCode);
+	
+	public String darDesvEstandar(String pViolationCode);
+	
+	public double deudaTotal (String pFechaInicial, String pFechaFinal) throws Exception;
 
-
+	public IStack<VOMovingViolations> ConsultarInfraccionesDireccion(String fechaInicial,String fechaFinal, String pAdressId) throws Exception;
 }

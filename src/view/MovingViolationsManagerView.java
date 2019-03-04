@@ -6,6 +6,9 @@ import java.util.Scanner;
 import controller.Controller;
 import model.data_structures.ILinkedList;
 import model.data_structures.LinkedList;
+import model.data_structures.Queue;
+import model.data_structures.Stack;
+import model.logic.MovingViolationsManager;
 import model.vo.VOMovingViolations;
 
 /**
@@ -35,7 +38,7 @@ public class MovingViolationsManagerView
 			switch(option)
 			{
 			case 1:
-				System.out.println("Ingrese el cuatrimestre");
+				System.out.println("Ingrese el Cuatrimestre");
 				Controller.loadMovingViolations(sc.next());
 				System.out.println("Listo");
 				break;
@@ -67,12 +70,14 @@ public class MovingViolationsManagerView
 				sc.close();
 				break;
 			case 5:
+				int contador = 0;
 				System.out.println("PASO1");
-				LinkedList<VOMovingViolations> repetidasList=Controller.verificarObjectID();
-				System.out.println("ENTRA");
-				if(repetidasList.getCounter()==0) System.out.println("No se encontraron OBJECTID repetidos.");
-				System.out.println("Sigue");
-				System.out.println("Se encontraron "+ repetidasList.getCounter() + " elementos repetidos:");
+				LinkedList<VOMovingViolations> repetidasList = Controller.verificarObjectID();
+				for (int i=0; i<repetidasList.size(); i++) {
+					if (repetidasList.get(i) != null)
+						contador++;
+				}
+				System.out.println("Se encontraron "+ contador+ " elementos repetidos:");
 				for (VOMovingViolations violations : repetidasList) 
 				{
 					System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
@@ -86,12 +91,58 @@ public class MovingViolationsManagerView
 				String fechaFinal=sc.next();
 
 				try {
-					LinkedList<VOMovingViolations> resultado=Controller.ConsultarInfraccionesFecha(fechaInicial,fechaFinal);
+					Queue<VOMovingViolations> resultado = Controller.ConsultarInfraccionesFecha(fechaInicial,fechaFinal);
 					for (VOMovingViolations violations : resultado) 
 					{
 						System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
 					}
 					
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+				break;
+				
+			case 7:
+				System.out.println("Ingrese el Violation Code: ");
+				String codigo = sc.next();
+				System.out.println(Controller.darPromedio(codigo));
+				break;
+				
+			case 8:
+				System.out.println("Ingrese la fecha inicial de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
+				String fechaInicial1 = sc.next();
+				System.out.println("Ingrese la fecha final de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
+				String fechaFinal1 = sc.next();
+				System.out.println("Ingrese la dirección de la infracción a consultar: ");
+				String direccion = sc.next();
+
+				try {
+					Stack<VOMovingViolations> resultado = Controller.ConsultarInfraccionesDireccion(fechaInicial1,fechaFinal1, direccion);
+					for (VOMovingViolations violations : resultado) 
+					{
+						System.out.println(violations.getObjectId() + " " + violations.getTicketIssue() + " " + violations.getSegid() + " " + violations.getAddressId());
+					}
+					
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+				break;
+				
+			case 12:
+				System.out.println("Ingrese el Violation Code: ");
+				String codigo2 = sc.next();
+				System.out.println(Controller.darDesvEstandar(codigo2));
+				break;
+				
+			case 15:
+				System.out.println("Ingrese la fecha inicial de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
+				String fechaInicial2 = sc.next();
+				System.out.println("Ingrese la fecha final de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
+				String fechaFinal2 = sc.next();
+
+				try {
+					double resultado = Controller.deudaTotal(fechaInicial2,fechaFinal2);
+					System.out.println("La deuda total es: " + resultado);
 				} catch (Exception e) {
 					System.out.println(e);
 				}
@@ -107,13 +158,17 @@ public class MovingViolationsManagerView
 	 */
 	private static void printMenu() {
 		System.out.println("---------ISIS 1206 - Estructuras de datos----------");
-		System.out.println("---------------------Taller 2----------------------");
+		System.out.println("---------------------Proyecto 1----------------------");
 		System.out.println("1. Cree una nueva coleccion de infracciones en movimiento");
 		System.out.println("2. Dar listado de infracciones reportadas dado un código de infracción");
 		System.out.println("3. Dar listado de infracciones reportadas de acuerdo a si hay o no accidente reportado");
 		System.out.println("4. Salir");
-		System.out.println("5. [1.A] verificar OBJECTID es identificador único");
-		System.out.println("6. [2.A] consultar infracciones por fecha");
+		System.out.println("5. [1.A] Verificar si el OBJECTID es identificador único");
+		System.out.println("6. [2.A] Consultar infracciones por fecha");
+		System.out.println("7. [3.A] Informar el FINEAMT promedio (accidentes)");
+		System.out.println("8. [4.A] Consultar infracciones en una dirección");
+		System.out.println("12. [4.B] Informar el FINEAMT promedio y la desviación estándar");
+		System.out.println("15. [3.C] Consultar deuda total por rango de fechas");
 		System.out.println("Digite el número de opción para ejecutar la tarea, luego presione enter: (Ej., 1):");
 
 	}  

@@ -2,6 +2,8 @@ package model.logic;
 import api.IMovingViolationsManager;
 import model.vo.VOMovingViolations;
 import model.data_structures.ILinkedList;
+import model.data_structures.IQueue;
+import model.data_structures.IStack;
 import model.data_structures.LinkedList;
 import model.data_structures.Node;
 
@@ -14,6 +16,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Queue;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
@@ -55,54 +59,54 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 								,nextLine[7],nextLine[8],nextLine[9],nextLine[10],nextLine[11],nextLine[12],nextLine[13]
 										,nextLine[14],nextLine[15],nextLine[16]);
 						listaViolaciones.add(mV);
-						System.out.println("mapeando1: " + mV);
+						System.out.println("mapeando1");
 						contador1++;
 					}
-					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_February_2018.csv"));
-					String [] nextLine2;
-
-
-					reader2.readNext();
-					while ((nextLine2 = reader2.readNext()) != null) {
-
-
-						VOMovingViolations mV =new VOMovingViolations(nextLine2[0],nextLine2[1],nextLine2[2],nextLine2[3],nextLine2[4],nextLine2[5],nextLine2[6]
-								,nextLine2[7],nextLine2[8],nextLine2[9],nextLine2[10],nextLine2[11],nextLine2[12],nextLine2[13]
-										,nextLine2[14],nextLine2[15],nextLine2[16]);
-						listaViolaciones.add(mV);
-						System.out.println("mapeando2: " + mV);
-						contador2++;
-					}
-
-					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_March_2018.csv"));
-					String [] nextLine3;
-
-					reader3.readNext();
-					while ((nextLine3 = reader3.readNext()) != null) {
-
-
-						VOMovingViolations mV =new VOMovingViolations(nextLine3[0],nextLine3[1],nextLine3[2],nextLine3[3],nextLine3[4],nextLine3[5],nextLine3[6]
-								,nextLine3[7],nextLine3[8],nextLine3[9],nextLine3[10],nextLine3[11],nextLine3[12],nextLine3[13]
-										,nextLine3[14],nextLine3[15],nextLine3[16]);
-						listaViolaciones.add(mV);
-						System.out.println("mapeando3: " + mV);
-						contador3++;
-					}
-
-					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_April_2018.csv"));
-					String [] nextLine4;
-
-					reader4.readNext();
-					while ((nextLine4 = reader4.readNext()) != null) {
-
-
-						VOMovingViolations mV =new VOMovingViolations(nextLine4[0],nextLine4[1],nextLine4[2],nextLine4[3],nextLine4[4],nextLine4[5],nextLine4[6]
-								,nextLine4[7],nextLine4[8],nextLine4[9],nextLine4[10],nextLine4[11],nextLine4[12],nextLine4[13]
-										,nextLine4[14],nextLine4[15],nextLine4[16]);
-						listaViolaciones.add(mV);
-						System.out.println("mapeando4: " + mV);
-						contador4++;
-					}
+//					CSVReader reader2 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_February_2018.csv"));
+//					String [] nextLine2;
+//
+//
+//					reader2.readNext();
+//					while ((nextLine2 = reader2.readNext()) != null) {
+//
+//
+//						VOMovingViolations mV =new VOMovingViolations(nextLine2[0],nextLine2[1],nextLine2[2],nextLine2[3],nextLine2[4],nextLine2[5],nextLine2[6]
+//								,nextLine2[7],nextLine2[8],nextLine2[9],nextLine2[10],nextLine2[11],nextLine2[12],nextLine2[13]
+//										,nextLine2[14],nextLine2[15],nextLine2[16]);
+//						listaViolaciones.add(mV);
+//						System.out.println("mapeando2" );
+//						contador2++;
+//					}
+//
+//					CSVReader reader3 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_March_2018.csv"));
+//					String [] nextLine3;
+//
+//					reader3.readNext();
+//					while ((nextLine3 = reader3.readNext()) != null) {
+//
+//
+//						VOMovingViolations mV =new VOMovingViolations(nextLine3[0],nextLine3[1],nextLine3[2],nextLine3[3],nextLine3[4],nextLine3[5],nextLine3[6]
+//								,nextLine3[7],nextLine3[8],nextLine3[9],nextLine3[10],nextLine3[11],nextLine3[12],nextLine3[13]
+//										,nextLine3[14],nextLine3[15],nextLine3[16]);
+//						listaViolaciones.add(mV);
+//						System.out.println("mapeando3" );
+//						contador3++;
+//					}
+//
+//					CSVReader reader4 = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_April_2018.csv"));
+//					String [] nextLine4;
+//
+//					reader4.readNext();
+//					while ((nextLine4 = reader4.readNext()) != null) {
+//
+//
+//						VOMovingViolations mV =new VOMovingViolations(nextLine4[0],nextLine4[1],nextLine4[2],nextLine4[3],nextLine4[4],nextLine4[5],nextLine4[6]
+//								,nextLine4[7],nextLine4[8],nextLine4[9],nextLine4[10],nextLine4[11],nextLine4[12],nextLine4[13]
+//										,nextLine4[14],nextLine4[15],nextLine4[16]);
+//						listaViolaciones.add(mV);
+//						System.out.println("mapeando4" );
+//						contador4++;
+//					}
 
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -210,7 +214,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 				listaViolaciones= new LinkedList<>();
 				CSVReader reader = new CSVReader (new FileReader ("./data/Moving_Violations_Issued_in_September_2018.csv"));
 				String [] nextLine;
-				int contador9 =0;
+				int contador9=0;
 				int contador10=0;
 				int contador11=0;
 				int contador12=0;
@@ -327,46 +331,24 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 
 	@Override
 	public LinkedList <VOMovingViolations> verificarObjectID() {
-		LinkedList<VOMovingViolations> repetidas=new LinkedList<>();
-		VOMovingViolations ii=null;
-		for (int i = 0; i < listaViolaciones.getCounter(); i++) {
-			if(i+1<listaViolaciones.getCounter()) {
-				ii=listaViolaciones.get(i);
-
-				VOMovingViolations jj=null;
-				for (int j = i+1; j <listaViolaciones.getCounter(); j++) {
-					jj=listaViolaciones.get(j);
-					System.out.println(i+"objeto1: "+ii.getObjectId());
-					System.out.println(j+" -objeto2: "+jj.getObjectId());
-					if(ii.equals(jj)) {
-						//	repetidas.add(jj);
-					}
-					System.out.println("counterlista: "+listaViolaciones.getCounter());
-				}
+		HashMap<String, VOMovingViolations> hash = new HashMap<>();
+		LinkedList<VOMovingViolations> respuesta = new LinkedList<>();
+		for (int i=0; i<listaViolaciones.getCounter(); i++) {
+			if(hash.get(listaViolaciones.get(i).getObjectId())==null){
+				hash.put(listaViolaciones.get(i).getObjectId(), listaViolaciones.get(i));
 			}
-
+			else{
+				System.out.println("Agrega " + i);
+				respuesta.add(listaViolaciones.get(i));
+			}
 		}
-
-		//		int contador=0;
-		//		for (int j =0; j < listaViolaciones.getCounter(); j++) {
-		//			for (int i = j+1; i <listaViolaciones.getCounter(); i++) {
-		//				System.out.println("van: "+contador+ " i= "+j+ "j= "+i);
-		//				contador++;
-		//				System.out.println("listaviolacionescounter "+listaViolaciones.getCounter());
-		//				if(listaViolaciones.get(i).getObjectId().compareTo(listaViolaciones.get(j).getObjectId())==0) {
-		////					repetidas.add(listaViolaciones.get(j));
-		//					break;
-		//				}
-		//
-		//			}
-		//		}
-		return repetidas;
+		return (LinkedList<VOMovingViolations>) respuesta;
 	}
 
 
 	@Override
-	public LinkedList<VOMovingViolations> ConsultarInfraccionesFecha(String fInicial, String fFinal) throws Exception {
-		LinkedList<VOMovingViolations> encontrados=new LinkedList<VOMovingViolations>();
+	public IQueue<VOMovingViolations> ConsultarInfraccionesFecha(String fInicial, String fFinal) throws Exception {
+		IQueue<VOMovingViolations> encontrados =  new model.data_structures.Queue();
 		try {
 			SimpleDateFormat SDF=new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 			Date fechaInicial=null;
@@ -378,7 +360,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 			System.out.println(fechaFinal);
 			for (int i = 0; i < listaViolaciones.getCounter(); i++) {
 				if(listaViolaciones.get(i).getTicketIssue().compareTo(fechaInicial)>=0&&listaViolaciones.get(i).getTicketIssue().compareTo(fechaFinal)<=0) {
-					encontrados.add(listaViolaciones.get(i));
+					encontrados.enqueue(listaViolaciones.get(i));
 				}
 			}
 		} catch (ParseException e) {
@@ -387,8 +369,143 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 			throw e;
 		}
 
+		return (IQueue<VOMovingViolations>) encontrados;
+	}
+	
+	public String darPromedio(String pViolationCode) {
+		LinkedList<String> sinAccidente = new LinkedList<>();
+		LinkedList<String> conAccidente = new LinkedList<>();
+		int suma1 = 0;
+		int suma2 = 0;
+		double resp1 = 0;
+		double resp2 = 0;
+		
+		
+		for (int i=0; i<listaViolaciones.size(); i++)
+		{
+			if(listaViolaciones.get(i)
+					!=null) {
+			if (listaViolaciones.get(i).getViolationCode().equals(pViolationCode)) {
+			if (listaViolaciones.get(i).getAccidentId().equals("No"))
+				sinAccidente.add(listaViolaciones.get(i).getFine());
+			else
+				conAccidente.add(listaViolaciones.get(i).getFine());
+			}
+		}
+		}
+		
+		for (int i=0; i<sinAccidente.size(); i++) {
+			int a = Integer.parseInt(sinAccidente.get(i));
+			suma1 += a;
+		}
+		for (int j=0; j<conAccidente.size(); j++) {
+			int a = Integer.parseInt(sinAccidente.get(j));
+			suma2 += a;
+		}
+		
+		resp1 = suma1/sinAccidente.size();
+		resp2 = suma2/conAccidente.size();
+		
+		return "Promedio FineAMT sin accidente: " + resp1 + "," + "Promedio FineAMT con accidente: " + resp2;
+	}
+
+	
+	public String darDesvEstandar(String pViolationCode) {
+		LinkedList<String> valores = new LinkedList<>();
+		LinkedList<Integer> valoresNum = new LinkedList<>();
+		double promedio = 0;
+		int suma = 0;
+		double varianza = 0;
+		double sumatoria;
+		int c = 0;
+		double desviacion;
+		for (int i=0; i<listaViolaciones.getCounter(); i++) {
+			if (listaViolaciones.get(i) != null) {
+			if(listaViolaciones.get(i).getViolationCode().equals(pViolationCode)) {
+				valores.add(listaViolaciones.get(i).getFine());
+			}
+			}
+		}
+		for (int k=0; k<valores.getCounter(); k++) {
+			 int a = Integer.parseInt(valores.get(k));
+			 suma += a;
+		}
+		promedio = suma/valores.getCounter();
+		for (int i=0; i<valores.getCounter(); i++) {
+			c = Integer.parseInt(valores.get(i));
+			valoresNum.add(c);
+		}
+		for (int i=0; i<valoresNum.getCounter(); i++) {
+			sumatoria = Math.pow((valoresNum.get(i))-promedio, 2);
+			varianza = varianza + sumatoria;
+		}
+		varianza = varianza / (valoresNum.getCounter())-1;
+		desviacion = Math.sqrt(varianza);
+		
+		return "El FINEAMT promedio es: " + promedio + "," + "La desviación estándar es: " + desviacion;
+	}
+	
+	public double deudaTotal(String pFechaInicial, String pFechaFinal) throws Exception {
+		LinkedList<VOMovingViolations> encontrados1 =  new LinkedList<>();
+		double fine = 0;
+		double paid = 0;
+		double penalty1 = 0;
+		double penalty2 = 0;
+		double total = 0;
+		try {
+			SimpleDateFormat SDF=new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+			Date fechaInicial=null;
+			Date fechaFinal=null;
+
+			fechaInicial= SDF.parse(pFechaInicial);
+			System.out.println(pFechaInicial);
+			fechaFinal=SDF.parse(pFechaFinal);
+			System.out.println(pFechaFinal);
+			for (int i = 0; i < listaViolaciones.getCounter(); i++) {
+				if(listaViolaciones.get(i).getTicketIssue().compareTo(fechaInicial)>=0&&listaViolaciones.get(i).getTicketIssue().compareTo(fechaFinal)<=0) {
+					encontrados1.add(listaViolaciones.get(i));
+				}
+			}
+			
+			for (int i=0; i<encontrados1.getCounter(); i++) {
+				fine += Integer.parseInt(encontrados1.get(i).getFine());
+				paid += Integer.parseInt(encontrados1.get(i).getPaid());
+				penalty1 += Integer.parseInt(encontrados1.get(i).getPenalty1());
+				penalty2 += Integer.parseInt(encontrados1.get(i).getPenalty2());
+			}
+			
+			total = fine + paid + penalty1 + penalty2;
+			return total;
+		}
+		catch (ParseException e) {
+			throw e;
+		}
+}
+	
+	public IStack<VOMovingViolations> ConsultarInfraccionesDireccion(String pFechaInicial, String pFechaFinal, String pAdressId) throws Exception {
+		IStack<VOMovingViolations> encontrados =  new model.data_structures.Stack();
+		try {
+			SimpleDateFormat SDF=new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+			Date fechaInicial=null;
+			Date fechaFinal=null;
+
+			fechaInicial= SDF.parse(pFechaInicial);
+			System.out.println(fechaInicial);
+			fechaFinal=SDF.parse(pFechaFinal);
+			System.out.println(fechaFinal);
+			for (int i = 0; i < listaViolaciones.getCounter(); i++) {
+				if (listaViolaciones.get(i).getAddressId().equals(pAdressId)) {
+				if(listaViolaciones.get(i).getTicketIssue().compareTo(fechaInicial)>=0&&listaViolaciones.get(i).getTicketIssue().compareTo(fechaFinal)<=0) {
+					encontrados.push(listaViolaciones.get(i));
+				}
+				}
+			}
+		} catch (ParseException e) {
+			
+//			Exception ee = new Exception("Error formato de fecha");
+			throw e;
+		}
+		
 		return encontrados;
-	}	
-
-
+	}
 }

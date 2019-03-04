@@ -14,6 +14,11 @@ public interface ILinkedList<T> extends Iterable<T> {
 	public int getCounter();
 	
 	/**
+	 * 
+	 */
+	public int size();
+	
+	/**
 	 * Método que agrega un objeto a la lista.
 	 * @param obj Objeto a agregar.
 	 */

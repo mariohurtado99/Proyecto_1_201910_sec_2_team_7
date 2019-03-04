@@ -131,7 +131,7 @@ public class VOMovingViolations {
 		this.penalty1 = penalty1;
 		this.penalty2 = penalty2;
 		this.accidentId = accidentId;
-		this.setTicketIssue(ticketIssue);;
+		setTicketIssue(ticketIssue);
 		this.violationCode = violationCode;
 		this.violationDesc = violationDesc;
 		this.rowId = rowId;
@@ -333,7 +333,6 @@ public class VOMovingViolations {
 		
  String[] fecha=ticketIssue.split(".000Z");
  String []fechaa=fecha[0].split("T");
- System.out.println("("+fechaa[0]+")"+"("+fechaa[1]+")");
 
 String completa=fechaa[0]+fechaa[1];
 
