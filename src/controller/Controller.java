@@ -1,6 +1,7 @@
 package controller;
 
 import api.IMovingViolationsManager;
+import model.data_structures.ILinkedList;
 import model.data_structures.LinkedList;
 import model.data_structures.Queue;
 import model.data_structures.Stack;
@@ -17,15 +18,14 @@ public class Controller {
 	/**
 	 * Referencia al service manager.
 	 */
-	@SuppressWarnings("unused")
 	private static IMovingViolationsManager  manager = new MovingViolationsManager();
 	
 	/**
 	 * Método que carga la información de la ruta que entra por parámetro.
 	 * @param path Ruta del archivo.
 	 */
-	public static void loadMovingViolations(String path) {
-		manager.loadMovingViolations(path);
+	public static LinkedList<VOMovingViolations> loadMovingViolations(String path) {
+		return manager.loadMovingViolations(path);
 		
 	}
 	
@@ -48,7 +48,7 @@ public class Controller {
 		return manager.getMovingViolationsByAccident(accidentIndicator);
 	}
 
-	public static LinkedList <VOMovingViolations> verificarObjectID() {
+	public static ILinkedList <VOMovingViolations> verificarObjectID() {
 		return  manager.verificarObjectID();
 		
 	}
@@ -58,8 +58,8 @@ public class Controller {
 		return (Queue<VOMovingViolations>) manager.ConsultarInfraccionesFecha(fechaInicial,fechaFinal);
 	}
 	
-	public static String darPromedio(String pViolationCode) {
-		return manager.darPromedio(pViolationCode);
+	public static String darPromedio(String pViolationCode, LinkedList<VOMovingViolations>cargado) {
+		return manager.darPromedio(pViolationCode, cargado);
 	}
 	
 	public static String darDesvEstandar(String pViolationCode) {
@@ -72,6 +72,7 @@ public class Controller {
 	
 	public static Stack<VOMovingViolations> ConsultarInfraccionesDireccion(String fechaInicial, String fechaFinal, String pAdressId) throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println(fechaFinal);
 		return (Stack<VOMovingViolations>) manager.ConsultarInfraccionesDireccion(fechaInicial,fechaFinal, pAdressId);
 	}
 }

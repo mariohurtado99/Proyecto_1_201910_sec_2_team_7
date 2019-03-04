@@ -1,5 +1,6 @@
 package api;
 
+import model.data_structures.ILinkedList;
 import model.data_structures.IQueue;
 import model.data_structures.IStack;
 import model.data_structures.LinkedList;
@@ -16,7 +17,7 @@ public interface IMovingViolationsManager {
 	 * Método para cargar la información de los archivos
 	 * @param movingViolationsFile 
 	 */
-	void loadMovingViolations(String movingViolationsFile);
+	LinkedList<VOMovingViolations> loadMovingViolations(String movingViolationsFile);
 
 	/**
 	 * Método para cargar la información de los archivos por código de violación.
@@ -32,11 +33,11 @@ public interface IMovingViolationsManager {
 	 */
 	public LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator);
 
-	public LinkedList <VOMovingViolations> verificarObjectID();
+	public ILinkedList<VOMovingViolations> verificarObjectID();
 
 	public IQueue<VOMovingViolations> ConsultarInfraccionesFecha(String fechaInicial,String fechaFinal) throws Exception;
 	
-	public String darPromedio(String pViolationCode);
+	public String darPromedio(String pViolationCode, LinkedList<VOMovingViolations>cargado);
 	
 	public String darDesvEstandar(String pViolationCode);
 	

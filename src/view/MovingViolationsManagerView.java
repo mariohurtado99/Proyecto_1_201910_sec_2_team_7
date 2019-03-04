@@ -26,8 +26,10 @@ public class MovingViolationsManagerView
 	{
 		Scanner sc = new Scanner(System.in);
 		boolean fin=false;
+		LinkedList<VOMovingViolations> cargado = new LinkedList<VOMovingViolations>();
 		while(!fin)
 		{
+			
 			printMenu();
 
 			int option = sc.nextInt();
@@ -39,7 +41,7 @@ public class MovingViolationsManagerView
 			{
 			case 1:
 				System.out.println("Ingrese el Cuatrimestre");
-				Controller.loadMovingViolations(sc.next());
+				cargado = Controller.loadMovingViolations(sc.next());
 				System.out.println("Listo");
 				break;
 
@@ -47,7 +49,7 @@ public class MovingViolationsManagerView
 				System.out.println("Ingrese el código de la infracción:");
 				String violationCode = sc.next();
 				LinkedList<VOMovingViolations> violationsByCodeList = Controller.getMovingViolationsByViolationCode (violationCode);
-				System.out.println("Se encontraron "+ violationsByCodeList.getCounter() + " elementos");
+				System.out.println("Se encontraron "+ violationsByCodeList.size() + " elementos");
 				for (VOMovingViolations violations : violationsByCodeList) 
 				{
 					System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
@@ -58,7 +60,7 @@ public class MovingViolationsManagerView
 				System.out.println("Ingrese el indicador de Accidente que quiere consulta (No/Yes):");
 				String accidentIndicator = sc.next();
 				LinkedList<VOMovingViolations> violationsByAccidentsList = Controller.getMovingViolationsByAccident (accidentIndicator);
-				System.out.println("Se encontraron "+ violationsByAccidentsList.getCounter() + " elementos");
+				System.out.println("Se encontraron "+ violationsByAccidentsList.size() + " elementos");
 				for (VOMovingViolations violations : violationsByAccidentsList) 
 				{
 					System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
@@ -72,22 +74,24 @@ public class MovingViolationsManagerView
 			case 5:
 				int contador = 0;
 				System.out.println("PASO1");
-				LinkedList<VOMovingViolations> repetidasList = Controller.verificarObjectID();
-				for (int i=0; i<repetidasList.size(); i++) {
-					if (repetidasList.get(i) != null)
-						contador++;
+				ILinkedList<VOMovingViolations> repetidasList = Controller.verificarObjectID();
+				if(repetidasList.size()==0) {
+					System.out.println("Se encontraron "+ repetidasList.size()+ " elementos repetidos");
 				}
-				System.out.println("Se encontraron "+ contador+ " elementos repetidos:");
-				for (VOMovingViolations violations : repetidasList) 
-				{
-					System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
+				else {
+					System.out.println("Se encontraron "+ repetidasList.size()+ " elementos repetidos:");
+					for (VOMovingViolations violations : repetidasList) 
+					{
+						System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
+					}
 				}
 				break;
 			case 6:	
 
-				System.out.println("Ingrese la fecha inicial de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
+				System.out.println("Ingrese la fecha inicial de la consulta: (formato yyyy-MM-ddhh:mm:ss)");
 				String fechaInicial=sc.next();
-				System.out.println("Ingrese la fecha final de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
+				System.out.println(fechaInicial);
+				System.out.println("Ingrese la fecha final de la consulta: (formato yyyy-MM-ddhh:mm:ss)");
 				String fechaFinal=sc.next();
 
 				try {
@@ -98,21 +102,23 @@ public class MovingViolationsManagerView
 					}
 					
 				} catch (Exception e) {
-					System.out.println(e);
+					e.printStackTrace();
 				}
 				break;
 				
 			case 7:
 				System.out.println("Ingrese el Violation Code: ");
 				String codigo = sc.next();
-				System.out.println(Controller.darPromedio(codigo));
+				System.out.println(Controller.darPromedio(codigo,cargado));
 				break;
 				
 			case 8:
-				System.out.println("Ingrese la fecha inicial de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
+				System.out.println("Ingrese la fecha inicial de la consulta: (formato yyyy-MM-ddhh:mm:ss)");
 				String fechaInicial1 = sc.next();
-				System.out.println("Ingrese la fecha final de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
+				System.out.println(fechaInicial1);
+				System.out.println("Ingrese la fecha final de la consulta: (formato yyyy-MM-ddhh:mm:ss)");
 				String fechaFinal1 = sc.next();
+				System.out.println(fechaFinal1);
 				System.out.println("Ingrese la dirección de la infracción a consultar: ");
 				String direccion = sc.next();
 

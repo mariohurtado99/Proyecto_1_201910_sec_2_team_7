@@ -23,7 +23,7 @@ public class LinkedListTest extends TestCase{
 		arreglo.add(3); 
 		arreglo.add(4);
 		arreglo.add(5);
-		assertEquals(5, arreglo.getCounter());
+		assertEquals(5, arreglo.size());
 	}
 	
 	/**
@@ -34,7 +34,7 @@ public class LinkedListTest extends TestCase{
 		arreglo2.add(1);
 		arreglo2.add(2);
 		arreglo2.add(3);
-		assertEquals(3, arreglo2.getCounter());
+		assertEquals(3, arreglo2.size());
 	}
 	
 	/**

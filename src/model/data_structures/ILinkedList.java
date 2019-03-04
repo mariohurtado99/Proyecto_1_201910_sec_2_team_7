@@ -7,11 +7,7 @@ package model.data_structures;
  */
 public interface ILinkedList<T> extends Iterable<T> {
 
-	/**
-	 * Método que da el tamaño de la lista.
-	 * @return
-	 */
-	public int getCounter();
+	
 	
 	/**
 	 * 
