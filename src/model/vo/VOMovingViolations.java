@@ -8,8 +8,9 @@ import java.util.Date;
 /**
  * Representation of a Trip object
  * @author Mario Hurtado
+ * @param <T>
  */
-public class VOMovingViolations {
+public class VOMovingViolations<T> implements Comparable<VOMovingViolations<T>> {
 
 	/**
 	 * Id del objeto
@@ -386,5 +387,11 @@ String completa=fechaa[0]+fechaa[1];
 	 */
 	public void setRowId(String rowId) {
 		this.rowId = rowId;
+	}
+
+	@Override
+	public int compareTo(VOMovingViolations<T> o) {
+		return this.getTicketIssue().compareTo(o.getTicketIssue());
+		
 	}
 }
