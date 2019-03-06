@@ -46,7 +46,7 @@ public interface IMovingViolationsManager {
 
 	public IStack<VOMovingViolations> ConsultarInfraccionesDireccion(String fechaInicial,String fechaFinal, String pAdressId) throws Exception;
 
-	public IQueue ConsultarInfraccionesPromedioRango(String min, String max);
+	public model.data_structures.Queue<Integer>  ConsultarInfraccionesPromedioRango(String min, String max);
 
     public Stack ConsultarInfraccionesPagadoRango(int min2, int max2, String orden);
 

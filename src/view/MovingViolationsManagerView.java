@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import controller.Controller;
 import model.data_structures.ILinkedList;
+import model.data_structures.IQueue;
 import model.data_structures.LinkedList;
 import model.data_structures.Queue;
 import model.data_structures.Stack;
@@ -29,7 +30,7 @@ public class MovingViolationsManagerView
 		LinkedList<VOMovingViolations> cargado = new LinkedList<VOMovingViolations>();
 		while(!fin)
 		{
-			
+
 			printMenu();
 
 			int option = sc.nextInt();
@@ -100,18 +101,18 @@ public class MovingViolationsManagerView
 					{
 						System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
 					}
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				break;
-				
+
 			case 7:
 				System.out.println("Ingrese el Violation Code: ");
 				String codigo = sc.next();
 				System.out.println(Controller.darPromedio(codigo,cargado));
 				break;
-				
+
 			case 8:
 				System.out.println("Ingrese la fecha inicial de la consulta: (formato yyyy-MM-ddhh:mm:ss)");
 				String fechaInicial1 = sc.next();
@@ -128,20 +129,35 @@ public class MovingViolationsManagerView
 					{
 						System.out.println(violations.getObjectId() + " " + violations.getTicketIssue() + " " + violations.getSegid() + " " + violations.getAddressId());
 					}
-					
+
 				} catch (Exception e) {
 					System.out.println(e);
 				}
 				break;
-				
+
 			case 9:
 				System.out.println("Ingrese valor mínimo");
 				String min = sc.next();
 				System.out.println("Ingrese valor máximo");
 				String max = sc.next();
-				Controller.ConsultarInfraccionesPromedioRango(min,max);
+				try {
+					model.data_structures.Queue<Integer> q= Controller.ConsultarInfraccionesPromedioRango(min,max);
+					model.data_structures.Queue<Integer> qu = new Queue<Integer>();
+					int n=q.dequeue();
+					for (int i = 1; i <= n; i++) {
+						qu.enqueue(q.dequeue());
+					}
+					for (int i = 0; i < n; i++) {
+						System.out.println("ViolationCode: "+qu.dequeue()+" - Promedio: "+q.dequeue());
+					}
+						
+					
+				}
+				catch (Exception e) {
+					System.out.println(e);
+				}
 				break;
-				
+
 			case 10:
 				System.out.println("Ingrese valor mínimo");
 				int min2 = Integer.parseInt(sc.next());
@@ -149,20 +165,20 @@ public class MovingViolationsManagerView
 				int max2 = Integer.parseInt(sc.next());
 				System.out.println("1 para orden ascendente, 0 para orden descendente (1/0)");
 				String orden = sc.next();
-				
+
 				try {
 					Stack<VOMovingViolations> resultado = Controller.ConsultarInfraccionesPagadoRango(min2,max2,orden);
 					for (VOMovingViolations violations : resultado) 
 					{
 						System.out.println(violations.getObjectId() + " " + violations.getTicketIssue() + " " + violations.getPaid());
 					}
-					
+
 				} catch (Exception e) {
 					System.out.println(e);
 				}
 				break;
-				
-				
+
+
 			case 11:
 				System.out.println("Ingrese la fecha inicial de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
 				String fechaInicial2 = sc.next();
@@ -174,7 +190,7 @@ public class MovingViolationsManagerView
 					{
 						System.out.println(violations.getObjectId() + " " + violations.getTicketIssue() + " " + violations.getViolationDesc());
 					}
-					
+
 				} catch (Exception e) {
 					System.out.println(e);
 				}
@@ -184,7 +200,7 @@ public class MovingViolationsManagerView
 				String codigo2 = sc.next();
 				System.out.println(Controller.darDesvEstandar(codigo2));
 				break;
-				
+
 			case 15:
 				System.out.println("Ingrese la fecha inicial de la consulta: (formato dd-mm-yyyy hh:mm:ss)");
 				String fechaInicial3 = sc.next();

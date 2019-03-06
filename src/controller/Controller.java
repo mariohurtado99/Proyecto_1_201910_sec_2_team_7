@@ -77,7 +77,7 @@ public class Controller {
 		return (Stack<VOMovingViolations>) manager.ConsultarInfraccionesDireccion(fechaInicial,fechaFinal, pAdressId);
 	}
 
-	public static IQueue ConsultarInfraccionesPromedioRango(String min, String max) {
+	public static model.data_structures.Queue<Integer>  ConsultarInfraccionesPromedioRango(String min, String max) {
 		return manager.ConsultarInfraccionesPromedioRango(min,max);
 		
 	}
